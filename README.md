@@ -1,8 +1,8 @@
 # GiftRocket Ruby API
 
-[Documentation](https://www.giftrocket.com/docs)
-[Product information](https://www.giftrocket.com/rewards)
-[Get an API Key](https://www.giftrocket.com/rewards/auth/signup)
+- [Documentation](https://www.giftrocket.com/docs)
+- [Product information](https://www.giftrocket.com/rewards)
+- [Get an API Key](https://www.giftrocket.com/rewards/auth/signup)
 
 Installation
 ------------
