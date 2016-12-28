@@ -64,9 +64,4 @@ Giftrocket::Gift.retrieve(order.gifts.first.id)
 Contributing
 ------------
 The gem is maintained by GiftRocket engineers, but all are welcome to contribute.
-Some ways to help:
-
-Report bugs
-Fix bugs and submit pull requests
-Write, clarify, or fix documentation
-Suggest or add new features
+Feel free to open an issue, submit a PR, or post a question.
