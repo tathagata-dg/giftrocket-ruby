@@ -29,7 +29,8 @@ class GiftTest < Minitest::Test
     assert_equal data[:message], gift.message
     assert_equal data[:style_id], gift.style_id
     assert_equal data[:status], gift.status
-    assert_equal data[:recipient], gift.recipient
+    assert_equal data[:recipient][:email], gift.recipient.email
+    assert_equal data[:recipient][:name], gift.recipient.name
     assert_equal data[:events], gift.events
   end
 
