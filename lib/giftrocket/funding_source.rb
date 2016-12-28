@@ -13,7 +13,7 @@ module Giftrocket
       self.meta = attributes[:meta]
     end
 
-    def self.all
+    def self.list
       response = get '/', query: Giftrocket.default_options, format: 'json'
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access

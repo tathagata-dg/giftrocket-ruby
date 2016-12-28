@@ -31,7 +31,7 @@ class FundingSourceTest < Minitest::Test
       end
     end
 
-    def test_all
+    def test_list
       response = {
         "funding_sources": [
           {
@@ -62,7 +62,7 @@ class FundingSourceTest < Minitest::Test
           body: response.to_json,
           headers: {"Content-Type"=> "application/json"}
         )
-      funding_sources = Giftrocket::FundingSource.all
+      funding_sources = Giftrocket::FundingSource.list
       assert_equal funding_sources.count, 2
     end
   end

@@ -18,7 +18,7 @@ module Giftrocket
       self.events = attributes[:events]
     end
 
-    def self.all
+    def self.list
       response = get '/', query: Giftrocket.default_options, format: 'json'
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access

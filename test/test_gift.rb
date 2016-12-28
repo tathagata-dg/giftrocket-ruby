@@ -40,7 +40,7 @@ class GiftTest < Minitest::Test
       end
     end
 
-    def test_all
+    def test_list
       response = {
         "gifts": [
           {
@@ -69,7 +69,7 @@ class GiftTest < Minitest::Test
           body: response.to_json,
           headers: {"Content-Type"=> "application/json"}
         )
-      gifts = Giftrocket::Gift.all
+      gifts = Giftrocket::Gift.list
       assert_equal gifts.count, 1
     end
 
