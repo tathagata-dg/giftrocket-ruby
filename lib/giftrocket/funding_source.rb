@@ -1,4 +1,3 @@
-require 'byebug'
 module Giftrocket
   class FundingSource
 
@@ -8,6 +7,7 @@ module Giftrocket
     attr_accessor :id, :method, :meta
 
     def initialize(attributes)
+      attributes = attributes.with_indifferent_access
       self.id = attributes[:id]
       self.method = attributes[:method]
       self.meta = attributes[:meta]
