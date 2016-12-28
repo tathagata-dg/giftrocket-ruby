@@ -53,10 +53,10 @@ gifts_data = [
   }
 ]
 
-# Submit the order to GiftRocket. If response is 200, the order was placed.
+# Submit the order to GiftRocket.
 order = Giftrocket::Order.create!(funding_source_id, gifts_data)
 
-# Test that the order and gift were created.
+# Retrieve the order and gift.
 Giftrocket::Order.retrieve(order.id)
 Giftrocket::Gift.retrieve(order.gifts.first.id)
 ```
