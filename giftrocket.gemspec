@@ -4,6 +4,7 @@ require File.expand_path('../lib/giftrocket/version', __FILE__)
 Gem::Specification.new do |spec|
   spec.name          = 'giftrocket_ruby'
   spec.version       = Giftrocket::VERSION
+  spec.summary       = "Send GiftRocket gift cards programmatically, en masse"
   spec.summary       = 'GiftRocket Ruby API SDK'
   spec.licenses      = ['MIT']
   spec.homepage      = 'https://github.com/GiftRocket/giftrocket-ruby'
@@ -12,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['support@giftrocket.com', 'kapil@giftrocket.com']
   spec.files         = Dir['lib/**/*.rb']
 
-  spec.add_runtime_dependency 'activesupport', '~> 3.2.18'
+  spec.add_runtime_dependency 'activesupport', '~> 3.2'
   spec.add_runtime_dependency 'httparty', '~> 0.14.0'
 
   spec.add_development_dependency 'minitest', '~> 5.0'
