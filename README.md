@@ -60,3 +60,13 @@ order = Giftrocket::Order.create!(funding_source_id, gifts_data)
 Giftrocket::Order.retrieve(order.id)
 Giftrocket::Gift.retrieve(order.gifts.first.id)
 ```
+
+Contributing
+------------
+The gem is maintained by GiftRocket engineers, but all are welcome to contribute.
+Some ways to help:
+
+Report bugs
+Fix bugs and submit pull requests
+Write, clarify, or fix documentation
+Suggest or add new features
