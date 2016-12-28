@@ -6,7 +6,7 @@ For more info about the product, or to get an access token, visit [GiftRocket Re
 Usage
 -----
 
-1. Require and configure the gem with your access token.
+1) Require and configure the gem with your access token.
 
 ```
 require 'giftrocket'
@@ -15,7 +15,7 @@ Giftrocket.configure do |config|
 end
 ```
 
-2. Create an order
+2) Create an order
 
 ```
 funding_source_id = Giftrocket::FundingSource.list.first.id
@@ -35,7 +35,7 @@ gift_data = [
 order = GiftRocket::Order.create!(funding_source_id, gift_data)
 ```
 
-3. Look at the gifts you have sent in the past.
+3) Look at the gifts you have sent in the past.
 
 `Giftrocket::Gift.list`
 
