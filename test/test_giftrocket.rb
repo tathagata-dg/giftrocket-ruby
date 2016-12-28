@@ -3,10 +3,6 @@ require 'giftrocket'
 
 
 class GiftrocketTest < Minitest::Test
-  def test_the_test
-    assert_equal "hello world", "hello world"
-  end
-
   def test_config
     access_token = 'abcdefg'
     Giftrocket.configure do |config|

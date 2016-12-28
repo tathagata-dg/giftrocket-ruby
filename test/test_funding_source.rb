@@ -3,11 +3,6 @@ require 'webmock/minitest'
 require 'giftrocket'
 
 class FundingSourceTest < Minitest::Test
-  def test_the_test
-    source = Giftrocket::FundingSource.new({})
-    assert_equal "hello world", "hello world"
-  end
-
   def test_initialization
     data = {
       "id": "K908LJARLJ",

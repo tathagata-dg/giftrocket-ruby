@@ -3,11 +3,6 @@ require 'webmock/minitest'
 require 'giftrocket'
 
 class StyleTest < Minitest::Test
-  def test_the_test
-    source = Giftrocket::Style.new({})
-    assert_equal "hello world", "hello world"
-  end
-
   def test_initialization
     data = {
       "id": "ABCD23424",
