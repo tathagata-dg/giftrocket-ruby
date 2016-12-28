@@ -2,8 +2,16 @@ require 'minitest/autorun'
 require 'giftrocket'
 
 
-class GiftRocketTest < Minitest::Test
-  def test_configuration
+class GiftrocketTest < Minitest::Test
+  def test_the_test
     assert_equal "hello world", "hello world"
+  end
+
+  def test_config
+    access_token = 'abcdefg'
+    Giftrocket.configure do |config|
+      config[:access_token] = access_token
+    end
+    assert_equal Giftrocket.class_variable_get('@@config')[:access_token], access_token
   end
 end
