@@ -4,3 +4,4 @@
 /gemfiles/*.lock
 /pkg/
 /.bundle/
+.byebug_history

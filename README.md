@@ -11,6 +11,8 @@ Usage
 ```
 require 'giftrocket'
 Giftrocket.configure do |config|
-  config.access_token = 'YOUR_ACCESS_TOKEN'
+  config[:access_token] = 'YOUR_ACCESS_TOKEN'
 end
 ```
+
+2. You
