@@ -2,7 +2,7 @@
 require File.expand_path('../lib/giftrocket/version', __FILE__)
 
 Gem::Specification.new do |spec|
-  spec.name          = 'giftrocket'
+  spec.name          = 'giftrocket_ruby'
   spec.version       = Giftrocket::VERSION
   spec.summary       = 'GiftRocket Ruby API SDK'
   spec.licenses      = ['MIT']
