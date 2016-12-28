@@ -18,8 +18,9 @@ module Giftrocket
       self.events = attributes[:events]
     end
 
-    def self.list
-      response = get '/', query: Giftrocket.default_options, format: 'json'
+    def self.list(query={})
+      query = query.merge(Giftrocket.default_options)
+      response = get '/', query: query, format: 'json'
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access
         response_json[:gifts].map do |gift_attributes|

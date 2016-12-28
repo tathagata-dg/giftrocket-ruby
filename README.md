@@ -1,4 +1,4 @@
-# GiftRocket Ruby API
+# GiftRocket Gift Card Ruby API
 
 - [Documentation](https://www.giftrocket.com/docs)
 - [Product information](https://www.giftrocket.com/rewards)

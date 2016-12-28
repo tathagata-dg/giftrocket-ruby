@@ -74,6 +74,41 @@ class GiftTest < Minitest::Test
       assert_equal gifts.count, 1
     end
 
+    def test_list_with_query
+      response = {
+        "gifts": [
+          {
+            "amount": 30,
+            "events": {
+              "created_at": "2016-11-05T01:00:49.387Z",
+              "delivered_at": "2016-11-05T01:02:50.057Z"
+            },
+            "id": "KF2BL4KDR87M",
+            "message": "Thank you for your incredible work this year!",
+            "order_id": "QABSTARTSFSIO",
+            "recipient": {
+              "email": "denise@sales.com",
+              "name": "Denise Miller"
+            },
+            "style_id": "S0Y9RLCM26K2",
+            "status": "DELIVERED"
+          }
+        ]
+      }
+
+      query = {offset: 2}
+
+      stub_request(:get, 'https://www.giftrocket.com/api/v1/gifts/').
+        with(query: query.merge(Giftrocket.default_options)).
+        to_return(
+          status: 200,
+          body: response.to_json,
+          headers: {"Content-Type"=> "application/json"}
+        )
+      gifts = Giftrocket::Gift.list(query)
+      assert_equal gifts.count, 1
+    end
+
     def test_retrieve
       id = "KF2BL4KDR87M"
       response = {

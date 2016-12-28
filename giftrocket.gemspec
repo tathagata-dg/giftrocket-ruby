@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'giftrocket_ruby'
   spec.version       = Giftrocket::VERSION
   spec.summary       = "Send GiftRocket gift cards programmatically, en masse"
-  spec.summary       = 'GiftRocket Ruby API SDK'
+  spec.summary       = 'GiftRocket Gift Card Ruby API SDK'
   spec.licenses      = ['MIT']
   spec.homepage      = 'https://github.com/GiftRocket/giftrocket-ruby'
   spec.summary       = 'GiftRocket Ruby API SDK'
