@@ -11,7 +11,7 @@ Installation
 
 or, add to your Gemfile
 
-```
+```ruby
 source 'https://rubygems.org'
 gem 'giftrocket'
 ```
@@ -19,7 +19,7 @@ gem 'giftrocket'
 Usage
 -----
 
-```
+```ruby
 require "giftrocket"
 
 # Development script.
