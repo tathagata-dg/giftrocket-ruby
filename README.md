@@ -1,7 +1,8 @@
 # GiftRocket Ruby API
 
 [Documentation](https://www.giftrocket.com/docs)
-[Product information](https://www.giftrocket.com/rewards).
+
+[Product information](https://www.giftrocket.com/rewards)
 
 Installation
 ------------
