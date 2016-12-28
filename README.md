@@ -7,7 +7,7 @@ For more info about the product, or to get an access token, visit [GiftRocket Re
 Installation
 ------------
 
-`gem install 'giftrocket'`
+`$ gem install 'giftrocket'`
 
 or, add to your Gemfile
 
