@@ -22,7 +22,7 @@ Usage
 ```ruby
 require 'giftrocket'
 
-# Development script.
+# Configure with your sandbox / production token.
 ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN_HERE'
 Giftrocket.configure do |config|
   config[:access_token] = ACCESS_TOKEN
