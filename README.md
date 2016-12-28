@@ -7,20 +7,20 @@ For more info about the product, or to get an access token, visit [GiftRocket Re
 Installation
 ------------
 
-`$ gem install 'giftrocket'`
+`$ gem install 'giftrocket_ruby'`
 
 or, add to your Gemfile
 
 ```ruby
 source 'https://rubygems.org'
-gem 'giftrocket'
+gem 'giftrocket_ruby'
 ```
 
 Usage
 -----
 
 ```ruby
-require "giftrocket"
+require 'giftrocket'
 
 # Development script.
 ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN_HERE'
