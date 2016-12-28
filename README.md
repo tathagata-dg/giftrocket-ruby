@@ -1,6 +1,8 @@
 # GiftRocket Ruby API
 
-Client library for [GiftRocket API](https://www.giftrocket.com/docs).
+[Documentation](https://www.giftrocket.com/docs)
+
+Client library for the GiftRocket API.
 For more info about the product, or to get an access token, visit [GiftRocket Rewards](https://www.giftrocket.com/rewards).
 
 
@@ -40,7 +42,7 @@ gifts = Giftrocket::Gift.list # blank at first.
 # The funding source you select is how you are charged for the order.
 funding_source_id = funding_sources.first.id
 
-# An array of gifts to create.
+# An array data representing the gifts you'd like to send.
 gifts_data = [
   {
     "amount": 30,
