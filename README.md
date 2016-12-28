@@ -6,37 +6,44 @@ For more info about the product, or to get an access token, visit [GiftRocket Re
 Usage
 -----
 
-1) Require and configure the gem with your access token.
-
 ```
-require 'giftrocket'
+require "giftrocket"
+
+# Development script.
+ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN_HERE'
 Giftrocket.configure do |config|
-  config[:access_token] = 'YOUR_ACCESS_TOKEN'
+  config[:access_token] = ACCESS_TOKEN
 end
-```
 
-2) Create an order
+funding_sources = Giftrocket::FundingSource.list
+styles = Giftrocket::Style.list
+orders = Giftrocket::Order.list # blank at first.
+gifts = Giftrocket::Gift.list # blank at first.
 
-```
-funding_source_id = Giftrocket::FundingSource.list.first.id
-gift_data = [
+#
+# Generate an order.
+#
+
+# The funding source you select is how you are charged for the order.
+funding_source_id = funding_sources.first.id
+
+# An array of gifts to create.
+gifts_data = [
   {
     "amount": 30,
-    "message": "Thank you for your incredible work this year!",
+    "message": "Thanks for your help this year!",
+    "style_id": styles.first.id,
     "recipient": {
-      "email": "denise@sales.com",
-      "name": "Denise Miller"
-    },
-    "style_id": "S0Y9RLCM26K2"
+      "email": "jake@giftrocket.com",
+      "name": "Jake Douglas"
+    }
   }
 ]
 
-# This creates the order with the funding source provided.
-order = GiftRocket::Order.create!(funding_source_id, gift_data)
+# Submit the order to GiftRocket. If response is 200, the order was placed.
+order = Giftrocket::Order.create!(funding_source_id, gifts_data)
+
+# Test that the order and gift were created.
+Giftrocket::Order.retrieve(order.id)
+Giftrocket::Gift.retrieve(order.gifts.first.id)
 ```
-
-3) Look at the gifts you have sent in the past.
-
-`Giftrocket::Gift.list`
-
-If you have questions, open an issue or email api@giftrocket.com
