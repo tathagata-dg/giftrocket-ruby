@@ -1,7 +1,9 @@
 # encoding: utf-8
+require File.expand_path('../lib/giftrocket/version', __FILE__)
+
 Gem::Specification.new do |spec|
   spec.name          = 'giftrocket'
-  spec.version       = '0.0.1'
+  spec.version       = Giftrocket::VERSION
   spec.summary       = 'GiftRocket Ruby API SDK'
   spec.licenses      = ['MIT']
   spec.homepage      = 'https://github.com/GiftRocket/giftrocket-ruby'
