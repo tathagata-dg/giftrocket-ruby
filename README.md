@@ -1,10 +1,7 @@
 # GiftRocket Ruby API
 
 [Documentation](https://www.giftrocket.com/docs)
-
-Client library for the GiftRocket API.
-For more info about the product, or to get an access token, visit [GiftRocket Rewards](https://www.giftrocket.com/rewards).
-
+[Product information](https://www.giftrocket.com/rewards).
 
 Installation
 ------------
