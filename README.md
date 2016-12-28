@@ -3,6 +3,19 @@
 Client library for [GiftRocket API](https://www.giftrocket.com/docs).
 For more info about the product, or to get an access token, visit [GiftRocket Rewards](https://www.giftrocket.com/rewards).
 
+
+Installation
+------------
+
+`gem install 'giftrocket'`
+
+or, add to your Gemfile
+
+```
+source 'https://rubygems.org'
+gem 'giftrocket'
+```
+
 Usage
 -----
 
