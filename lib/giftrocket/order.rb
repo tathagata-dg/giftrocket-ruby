@@ -17,12 +17,27 @@ module Giftrocket
       self.sender = Giftrocket::User.new(attributes[:sender])
     end
 
+    def self.create!(funding_source_id, gifts_data_array)
+      data_to_post = {
+        funding_source_id: funding_source_id,
+        gifts: gifts_data_array
+      }.merge(Giftrocket.default_options)
+
+      response = post '/', body: data_to_post.to_json, headers: { 'Content-Type' => 'application/json' }
+      if response.success?
+        response_json = JSON.parse(response.body).with_indifferent_access
+        Giftrocket::Order.new(response_json[:order])
+      else
+        raise Giftrocket::Error.new(response)
+      end
+    end
+
     def self.list
       response = get '/', query: Giftrocket.default_options, format: 'json'
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access
         response_json[:orders].map do |order_attributes|
-          ::Giftrocket::Order.new(order_attributes)
+          Giftrocket::Order.new(order_attributes)
         end
       else
         raise Giftrocket::Error.new(response)
@@ -33,7 +48,7 @@ module Giftrocket
       response = get "/#{id}", query: Giftrocket.default_options, format: 'json'
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access
-        ::Giftrocket::Order.new(response_json[:order])
+        Giftrocket::Order.new(response_json[:order])
       else
         raise Giftrocket::Error.new(response)
       end
