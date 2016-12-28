@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.email         = ['support@giftrocket.com', 'kapil@giftrocket.com']
   spec.files         = Dir['lib/**/*.rb']
 
-  spec.add_runtime_dependency 'activesupport'
-  spec.add_runtime_dependency 'httparty'
+  spec.add_runtime_dependency 'activesupport', '~> 3.2.18'
+  spec.add_runtime_dependency 'httparty', '~> 0.14.0'
 
   spec.add_development_dependency 'minitest', '~> 5.0'
   spec.add_development_dependency 'mocha', '~> 1.1'
