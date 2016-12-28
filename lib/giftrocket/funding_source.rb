@@ -18,7 +18,7 @@ module Giftrocket
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access
         response_json[:funding_sources].map do |funding_souce_attributes|
-          ::Giftrocket::FundingSource.new(funding_souce_attributes)
+          Giftrocket::FundingSource.new(funding_souce_attributes)
         end
       else
         raise Giftrocket::Error.new(response)

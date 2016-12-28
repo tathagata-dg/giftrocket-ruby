@@ -36,7 +36,7 @@ class GiftTest < Minitest::Test
 
   describe 'requires config' do
     before do
-      ::Giftrocket.configure do |config|
+      Giftrocket.configure do |config|
         config[:access_token] = 'abcd'
       end
     end

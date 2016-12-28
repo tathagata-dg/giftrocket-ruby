@@ -23,7 +23,7 @@ module Giftrocket
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access
         response_json[:gifts].map do |gift_attributes|
-          ::Giftrocket::Gift.new(gift_attributes)
+          Giftrocket::Gift.new(gift_attributes)
         end
       else
         raise Giftrocket::Error.new(response)
@@ -34,7 +34,7 @@ module Giftrocket
       response = get "/#{id}", query: Giftrocket.default_options, format: 'json'
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access
-        ::Giftrocket::Gift.new(response_json[:gift])
+        Giftrocket::Gift.new(response_json[:gift])
       else
         raise Giftrocket::Error.new(response)
       end

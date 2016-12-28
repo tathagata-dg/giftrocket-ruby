@@ -21,7 +21,7 @@ module Giftrocket
       if response.success?
         response_json = JSON.parse(response.body).with_indifferent_access
         response_json[:styles].map do |style_attributes|
-          ::Giftrocket::Style.new(style_attributes)
+          Giftrocket::Style.new(style_attributes)
         end
       else
         raise Giftrocket::Error.new(response)
