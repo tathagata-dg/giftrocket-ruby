@@ -7,7 +7,7 @@ module Giftrocket
     end
 
     def message
-      response_json = JSON.parse(response.body).with_indifferent_access
+      response_json = JSON.parse(@response.body).with_indifferent_access
       errors = response_json[:errors]
       "Code: #{@response.code}; Data: #{errors}"
     end
