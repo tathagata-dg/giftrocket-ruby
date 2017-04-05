@@ -1,6 +1,7 @@
 require 'httparty'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'giftrocket/base'
+require 'giftrocket/request'
 require 'giftrocket/funding_source'
 require 'giftrocket/gift'
 require 'giftrocket/style'
