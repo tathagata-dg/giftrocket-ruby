@@ -1,9 +1,6 @@
 module Giftrocket
   class Gift
 
-    include HTTParty
-    base_uri "#{Giftrocket.config[:base_api_uri]}gifts/"
-
     attr_accessor :id, :order_id, :amount, :message, :style_id, :status, :recipient, :events
 
     def initialize(attributes)
@@ -20,25 +17,19 @@ module Giftrocket
 
     def self.list(query={})
       query = query.merge(Giftrocket.default_options)
-      response = get '/', query: query, format: 'json'
-      if response.success?
-        response_json = JSON.parse(response.body).with_indifferent_access
-        response_json[:gifts].map do |gift_attributes|
-          Giftrocket::Gift.new(gift_attributes)
-        end
-      else
-        raise Giftrocket::Error.new(response)
+      response = Giftrocket::Request.get 'gifts',
+                                         query: query,
+                                         format: 'json'
+      response[:gifts].map do |gift_attributes|
+        Giftrocket::Gift.new(gift_attributes)
       end
     end
 
     def self.retrieve(id)
-      response = get "/#{id}", query: Giftrocket.default_options, format: 'json'
-      if response.success?
-        response_json = JSON.parse(response.body).with_indifferent_access
-        Giftrocket::Gift.new(response_json[:gift])
-      else
-        raise Giftrocket::Error.new(response)
-      end
+      response = Giftrocket::Request.get "gifts/#{id}",
+                                         query: Giftrocket.default_options,
+                                         format: 'json'
+      Giftrocket::Gift.new(response[:gift])
     end
   end
 end
