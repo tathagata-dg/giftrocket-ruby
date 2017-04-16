@@ -1,7 +1,7 @@
 module Giftrocket
   class Gift
 
-    attr_accessor :id, :order_id, :amount, :message, :style_id, :status, :recipient, :events
+    attr_accessor :id, :order_id, :amount, :message, :style_id, :status, :recipient, :sender, :events
 
     def initialize(attributes)
       attributes = attributes.with_indifferent_access
@@ -11,16 +11,17 @@ module Giftrocket
       self.message = attributes[:message]
       self.style_id = attributes[:style_id]
       self.status = attributes[:status]
+      self.sender = attributes[:sender]
       self.recipient = Giftrocket::User.new(attributes[:recipient])
       self.events = attributes[:events]
     end
 
-    def self.list(query={})
-      query = query.merge(Giftrocket.default_options)
-      response = Giftrocket::Request.get 'gifts',
-                                         query: query,
-                                         format: 'json'
-      response[:gifts].map do |gift_attributes|
+    def self.list(filters={})
+      response = Giftrocket::Request.get(
+        'gifts',
+        query: filters.merge(Giftrocket.default_options),
+        format: 'json'
+      )[:gifts].map do |gift_attributes|
         Giftrocket::Gift.new(gift_attributes)
       end
     end

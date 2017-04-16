@@ -13,9 +13,10 @@ module Giftrocket
       card && card[:url]
     end
 
-    def self.list
+    def self.list(filters={})
+      options = filters.merge(Giftrocket.default_options)
       response = Giftrocket::Request.get 'styles',
-                                     query: Giftrocket.default_options,
+                                     query: options,
                                      format: 'json'
 
       response[:styles].map do |style_attributes|

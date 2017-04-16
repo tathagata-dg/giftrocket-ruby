@@ -1,11 +1,12 @@
 module Giftrocket
   class Order
 
-    attr_accessor :id, :gifts, :payment, :sender
+    attr_accessor :id, :external_id, :gifts, :payment, :sender
 
     def initialize(attributes)
       attributes = attributes.with_indifferent_access
       self.id = attributes[:id]
+      self.external_id = attributes[:external_id]
       self.gifts = attributes[:gifts].map do |gift_attributes|
         Gift.new(gift_attributes)
       end
@@ -14,10 +15,12 @@ module Giftrocket
       self.sender = Giftrocket::User.new(attributes[:sender])
     end
 
-    def self.create!(funding_source_id, gifts_data_array)
+    def self.create!(funding_source_id, gifts, external_id=nil, organization_id=nil)
       data_to_post = {
         funding_source_id: funding_source_id,
-        gifts: gifts_data_array
+        external_id: external_id,
+        organization_id: organization_id,
+        gifts: gifts
       }.merge(Giftrocket.default_options)
 
       response = Giftrocket::Request.post 'orders',
@@ -27,12 +30,12 @@ module Giftrocket
       Giftrocket::Order.new(response[:order])
     end
 
-    def self.list
-      response = Giftrocket::Request.get 'orders',
-                                         query: Giftrocket.default_options,
-                                         format: 'json'
-
-      response[:orders].map do |order_attributes|
+    def self.list(filters={})
+      Giftrocket::Request.get(
+        'orders',
+        query: filters.merge(Giftrocket.default_options),
+        format: 'json'
+      )[:orders].map do |order_attributes|
         Giftrocket::Order.new(order_attributes)
       end
     end
