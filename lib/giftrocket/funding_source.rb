@@ -10,12 +10,12 @@ module Giftrocket
       self.meta = attributes[:meta]
     end
 
-    def self.list
-      response = Giftrocket::Request.get 'funding_sources',
-                                         query: Giftrocket.default_options,
-                                         format: 'json'
-
-      response[:funding_sources].map do |funding_souce_attributes|
+    def self.list(filters={})
+      Giftrocket::Request.get(
+        'funding_sources',
+        query: filters.merge(Giftrocket.default_options),
+        format: 'json'
+      )[:funding_sources].map do |funding_souce_attributes|
         Giftrocket::FundingSource.new(funding_souce_attributes)
       end
     end
