@@ -1,7 +1,7 @@
 module Giftrocket
   class OrganizationMember
 
-    attr_accessor :id, :name, :email, :role, :invite_url
+    attr_accessor :id, :name, :email, :role, :invite_url, :status
 
     def initialize(attributes)
       attributes = attributes.with_indifferent_access
@@ -9,6 +9,7 @@ module Giftrocket
       self.name = attributes[:name]
       self.email = attributes[:email]
       self.role = attributes[:role]
+      self.status = attributes[:status]
       self.invite_url = attributes[:invite_url]
     end
 
